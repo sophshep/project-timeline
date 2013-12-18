@@ -1,0 +1,269 @@
+/************Global**************/
+body {
+  background: #fff;
+  color: #222222;
+  font: 120%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  padding: 0;
+  -webkit-text-size-adjust: 100%; }
+
+a {
+  color: #2b9bd6;
+  text-decoration: none;
+  padding: .25em 0; 
+}
+
+a:hover, a:focus {
+  color: #222222;
+  text-decoration: underline; }
+
+p {
+  margin: 0 0 1em; }
+
+img, object, video {
+  max-width: 100%;
+  border: 0; }
+
+a img {
+  border: 0;
+  outline: 0; }
+
+h1 {
+  background-color: #2b9bd6;
+  color: white;
+  padding: 1em;
+  font-size: 2em;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  margin-bottom: 1em;
+}
+
+h2 {
+  text-transform: lowercase;
+  font-size: 3em;
+  line-height: 1.1;
+  margin: 0 0 0.4em; }
+
+h3 {
+  font-size: 1.4em;
+  line-height: 1.1;
+  margin: 0 0 .5em;
+}
+
+.status {
+  font-size: .75em;
+  padding-top: 1.5em;
+
+  span{font-weight: 700;}
+  span.alert{color: red;}
+  span.cool{color: green;}
+
+  a{
+    display: inline;
+  }
+
+}
+
+.main {
+  padding: 0 .75em;
+}
+
+@media all and (min-width: 700px){
+  .main {
+    padding: 0 2em;
+    max-width: 1400px;
+  }
+}
+
+.main-col {
+  padding-bottom: 1em;
+}
+
+@media all and (min-width: 700px){
+
+  .main-col {
+    float: left;
+    width: 65%;
+    margin-right: 5%;
+  }
+
+  .sidebar {
+    float: left;
+    width: 30%;
+  }
+
+}
+
+/************End Global**************/
+
+/************quick links**************/
+
+.key {
+  p {
+    font-size: .75em;
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+  margin-bottom: 2em;
+}
+
+.content-box {
+  border: 5px solid #dddddd;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+/************Timeline**************/
+/* Timeline Container */
+.timeline {
+  border-left: 5px solid #dddddd;
+  padding-bottom: 3em;
+  position: relative; }
+  .timeline:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -1.47em;
+    width: 40px;
+    height: 40px;
+    border-radius: 40px;
+    background: #dddddd;
+    border: 5px solid #dddddd; }
+
+/* Individual Timeline Item */
+.delivery {
+  padding-left: 1em;
+  margin-bottom: 3em;
+  position: relative; }
+  .delivery:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.95em;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 5px solid #dddddd; }
+
+.current-delivery {
+  background-color: #eeeeee;
+  padding: 1em;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -0.95em;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    background: #fff;
+    border: 5px solid #333333; 
+  }
+}
+
+/* Timestamp */
+.tl-stamp {
+  font-size: 0.7em;
+  color: gray; 
+  border-bottom: 1px solid #eeeeee;
+}
+
+.tl-content{
+  font-weight: 700;
+  font-size: 1.2em;
+  padding: .5em 0;
+}
+
+/************End Timeline**************/
+
+// DELIVERY TYPES //
+
+$pm:#813726;
+$reqs:#d69846;
+$content:#d6d143;
+$ux:#92d655;
+$visual-design:#4eb4d6;
+$template:#ab50d6;
+$style-guide:#d64f8b;
+
+.key-color {
+  color: #333333;
+  font-size: .75em;
+  padding: .25em .5em;
+  display: block;
+  margin-bottom: .5em;
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+
+  &:hover {
+    padding: .25em .5em .25em 1em;
+  }
+}
+
+.key-pm {
+  border-left: 5px solid $pm;
+  color: $pm;
+}
+.key-reqs {
+  border-left: 5px solid $reqs;
+  color: $reqs;
+}
+.key-content {
+  border-left: 5px solid $content;
+  color: $content;
+}
+.key-ux {
+  border-left: 5px solid $ux;
+  color: $ux;
+}
+.key-visual-design {
+  border-left: 5px solid $visual-design;
+  color: $visual-design;
+}
+.key-template {
+  border-left: 5px solid $template;
+  color: $template;
+}
+.key-style-guide {
+  border-left: 5px solid $style-guide;
+  color: $style-guide;
+}
+
+.tl-delivery-type{
+  border-left-width: 5px;
+  border-left-style: solid;
+  padding-left: 10px;
+  display:block;
+}
+
+.pm {
+  @extend .tl-delivery-type;
+  border-color: $pm;
+}
+.reqs {
+  @extend .tl-delivery-type;
+  border-color: $reqs;
+}
+.content {
+  @extend .tl-delivery-type;
+  border-color: $content;
+}
+.ux {
+  @extend .tl-delivery-type;
+  border-color: $ux;
+}
+.visual-design {
+  @extend .tl-delivery-type;
+  border-color: $visual-design;
+}
+.template {
+  @extend .tl-delivery-type;
+  border-color: $template;
+}
+.style-guide {
+  @extend .tl-delivery-type;
+  border-color: $style-guide;
+}
