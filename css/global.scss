@@ -31,10 +31,16 @@ h1 {
   background-color: #2b9bd6;
   color: white;
   padding: 1em;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 1em;
+}
+
+@media all and (min-width: 700px){
+  h1 {
+    font-size: 2em;
+  }
 }
 
 h2 {
@@ -44,7 +50,7 @@ h2 {
   margin: 0 0 0.4em; }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.1em;
   line-height: 1.1;
   margin: 0 0 .5em;
 }
@@ -53,12 +59,16 @@ h3 {
   font-size: .75em;
   padding-top: 1.5em;
 
-  span{font-weight: 700;}
+  span{
+    font-weight: 700;
+    border-bottom: 1px solid #ccc;
+  }
   span.alert{color: red;}
   span.cool{color: green;}
 
   a{
     display: inline;
+    opacity: 1 !important;
   }
 
 }
@@ -199,37 +209,8 @@ $style-guide:#d64f8b;
   transition: all 500ms ease-out;
 
   &:hover {
-    padding: .25em .5em .25em 1em;
+    border-left-width:30px;
   }
-}
-
-.key-pm {
-  border-left: 5px solid $pm;
-  color: $pm;
-}
-.key-reqs {
-  border-left: 5px solid $reqs;
-  color: $reqs;
-}
-.key-content {
-  border-left: 5px solid $content;
-  color: $content;
-}
-.key-ux {
-  border-left: 5px solid $ux;
-  color: $ux;
-}
-.key-visual-design {
-  border-left: 5px solid $visual-design;
-  color: $visual-design;
-}
-.key-template {
-  border-left: 5px solid $template;
-  color: $template;
-}
-.key-style-guide {
-  border-left: 5px solid $style-guide;
-  color: $style-guide;
 }
 
 .tl-delivery-type{
@@ -266,4 +247,27 @@ $style-guide:#d64f8b;
 .style-guide {
   @extend .tl-delivery-type;
   border-color: $style-guide;
+}
+
+.filter-example {
+
+  .delivery a {
+    opacity: .25;
+  }
+
+  .filtered-item {
+    opacity: 1 !important;
+  }
+
+  .key-color.filtered-item{
+    border-left-width:30px;
+    font-weight: bold;
+    &:before{
+      content:'✕';
+      color: white;
+      margin-left: -30px;
+      padding-right: 15px;
+    }
+  }
+
 }

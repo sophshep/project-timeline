@@ -54,11 +54,14 @@ h1 {
   background-color: #2b9bd6;
   color: white;
   padding: 1em;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1;
   letter-spacing: -0.02em;
   margin-bottom: 1em; }
 
+@media all and (min-width: 700px) {
+  h1 {
+    font-size: 2em; } }
 h2 {
   text-transform: lowercase;
   font-size: 3em;
@@ -66,7 +69,7 @@ h2 {
   margin: 0 0 0.4em; }
 
 h3 {
-  font-size: 1.4em;
+  font-size: 1.1em;
   line-height: 1.1;
   margin: 0 0 .5em; }
 
@@ -74,13 +77,15 @@ h3 {
   font-size: .75em;
   padding-top: 1.5em; }
   .status span {
-    font-weight: 700; }
+    font-weight: 700;
+    border-bottom: 1px solid #ccc; }
   .status span.alert {
     color: red; }
   .status span.cool {
     color: green; }
   .status a {
-    display: inline; }
+    display: inline;
+    opacity: 1 !important; }
 
 .main {
   padding: 0 .75em; }
@@ -187,35 +192,7 @@ h3 {
   -o-transition: all 500ms ease-out;
   transition: all 500ms ease-out; }
   .key-color:hover {
-    padding: .25em .5em .25em 1em; }
-
-.key-pm {
-  border-left: 5px solid #813726;
-  color: #813726; }
-
-.key-reqs {
-  border-left: 5px solid #d69846;
-  color: #d69846; }
-
-.key-content {
-  border-left: 5px solid #d6d143;
-  color: #d6d143; }
-
-.key-ux {
-  border-left: 5px solid #92d655;
-  color: #92d655; }
-
-.key-visual-design {
-  border-left: 5px solid #4eb4d6;
-  color: #4eb4d6; }
-
-.key-template {
-  border-left: 5px solid #ab50d6;
-  color: #ab50d6; }
-
-.key-style-guide {
-  border-left: 5px solid #d64f8b;
-  color: #d64f8b; }
+    border-left-width: 30px; }
 
 .tl-delivery-type, .pm, .reqs, .content, .ux, .visual-design, .template, .style-guide {
   border-left-width: 5px;
@@ -243,3 +220,16 @@ h3 {
 
 .style-guide {
   border-color: #d64f8b; }
+
+.filter-example .delivery a {
+  opacity: .25; }
+.filter-example .filtered-item {
+  opacity: 1 !important; }
+.filter-example .key-color.filtered-item {
+  border-left-width: 30px;
+  font-weight: bold; }
+  .filter-example .key-color.filtered-item:before {
+    content: '✕';
+    color: white;
+    margin-left: -30px;
+    padding-right: 15px; }
