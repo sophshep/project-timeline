@@ -54,14 +54,14 @@ a img {
   outline: 0; }
 
 h1 {
-  background-color: #333;
-  color: white;
-  padding: .5em 1em;
-  text-align: center;
-  font-size: 1.5em;
+  color: #333;
+  padding: .5em 0;
+  text-align: left;
+  font-size: 1.75em;
   line-height: 1;
   letter-spacing: -0.02em;
-  font-weight: normal; }
+  font-weight: normal;
+  margin-bottom: 1em; }
 
 h2 {
   text-transform: lowercase;
@@ -113,9 +113,7 @@ h3 {
     float: right;
     width: 30%;
     border-left: 5px solid #dddddd;
-    min-height: 3000px; }
-
-  .fixed {
+    min-height: 3000px;
     position: fixed;
     right: 0;
     top: 0; } }

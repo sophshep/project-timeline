@@ -7,9 +7,9 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body class="filter-example">
-	<h1>Client's Deliverable Timeline</h1>
 	<div class="main">
 		<div class="main-col">
+			<h1>Client's Deliverable Timeline</h1>
 			<ol class="timeline">
 				<li class="delivery current-delivery">
 					<div class="tl-stamp">August 24th, 2013</div>
@@ -133,32 +133,6 @@
 		</div><!--end sidebar-->
 
 	</div><!--end main-->
-	
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script>
-$(function(){ // document ready
- 
-  if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
- 
-    var stickyTop = $('.sticky').offset().top; // returns number 
- 
-    $(window).scroll(function(){ // scroll event
- 
-      var windowTop = $(window).scrollTop(); // returns number 
- 
-      if (stickyTop < windowTop){
-        $('.sticky').addClass('fixed');
-      }
-      else {
-        $('.sticky').removeClass('fixed');
-      }
- 
-    });
- 
-  }
- 
-});
-</script>
 
 </body>
 </html>
