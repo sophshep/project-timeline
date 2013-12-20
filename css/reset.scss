@@ -23,4 +23,15 @@ ul  {
 header, footer, nav, section, article, hgroup, figure {
   display: block; }
 
+img, object, video {
+  max-width: 100%;
+  border: 0; 
+}
+
+a img {
+  border: 0;
+  outline: 0; 
+}
+
+
 /************End Reset**************/

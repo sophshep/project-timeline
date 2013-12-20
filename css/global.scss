@@ -1,40 +1,37 @@
-/************Global**************/
+/************Variables & Type**************/
+
 $primary-color: #2b9bd6;
 $primary-color-light: lighten($primary-color, 45%);
+$body: #222222;
+
+$smallish: 700px;
 
 body {
   background: #fff;
-  color: #222222;
+  color: $body;
   font: 100%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  padding: 0;
-  -webkit-text-size-adjust: 100%; }
+  -webkit-text-size-adjust: 100%; 
+}
 
-@media all and (min-width: 700px){
-    body {
-    font: 120%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  }
+@media all and (min-width: $smallish){
+    body {font: 120%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;}
 }
 
 a {
-  color: #2b9bd6;
+  color: $primary-color;
   text-decoration: none;
-  padding: .25em 0; 
+  padding: .25em 0;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; 
+
+    &:hover, &:focus{
+      color: $body; 
+    }
 }
 
-a:hover, a:focus {
-  color: #222222;
-  text-decoration: underline; }
-
-p {
-  margin: 0 0 1em; }
-
-img, object, video {
-  max-width: 100%;
-  border: 0; }
-
-a img {
-  border: 0;
-  outline: 0; }
+p {margin: 0 0 1em;}
 
 h1 {
   color: #333;
@@ -48,7 +45,6 @@ h1 {
 }
 
 h2 {
-  text-transform: lowercase;
   font-size: 3em;
   line-height: 1.1;
   margin: 0 0 0.5em; }
@@ -68,20 +64,20 @@ h3 {
     border-bottom: 1px solid #ccc;
   }
   span.alert{color: red;}
-  span.cool{color: green;}
 
   a{
-    display: inline;
-    opacity: 1 !important;
+    opacity: 1 !important; //this is a sloppy fix for my filter example page
   }
 
 }
+
+/************Layout**************/
 
 .main-col {
   padding: 0 1em;
 }
 
-#sidebar {
+.sidebar {
   background: #eee;
   font-size: .8em;
 }
@@ -106,7 +102,7 @@ h3 {
     max-width: 1000px;
   }
 
-  #sidebar {
+  .sidebar {
     float: right;
     width: 30%;
     border-left: 5px solid #dddddd;
@@ -118,16 +114,7 @@ h3 {
 
 }
 
-/************End Global**************/
-
-/************quick links**************/
-
-.key {
-  p {
-    text-transform: uppercase;
-    margin-bottom: 0;
-  }
-}
+/************Sidebar**************/
 
 .content-box {
   border-bottom: 5px solid #dddddd;
@@ -142,46 +129,55 @@ h3 {
 .timeline {
   border-left: 5px solid #dddddd;
   padding-bottom: 3em;
-  position: relative; }
+  position: relative; 
+}
 
 /* Individual Timeline Item */
+
 .delivery {
   padding-left: 1em;
   margin-bottom: 3em;
-  position: relative; }
-  .delivery:before {
+  position: relative; 
+
+  &:before { //these are the dots
     content: "";
     position: absolute;
-    top: 0px;
+    top: 7px;
     left: -13px;
     width: 10px;
     height: 10px;
     border-radius: 10px;
     background: #fff;
-    border: 5px solid #dddddd; }
+    border: 5px solid #dddddd; 
+  }
+
+}
 
 .current-delivery {
   background-color: $primary-color-light;
   padding: 1em;
 
+  .tl-stamp {
+    background: $primary-color;
+    color: white;
+    margin-bottom: 1em;
+    &:after {
+       margin-top: 18px;
+       border-color: transparent $primary-color;
+    }
+  }
+
   &:before {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -13px;
-    width: 10px;
-    height: 10px;
-    border-radius: 10px;
-    background: #fff;
-    border: 5px solid #333333; 
+    top: 25px;
+    border: 5px solid $body; 
   }
 
   &:after{
     content:'Most Recent Delivery';
     background-color: lighten($primary-color, 40%);
     padding: 10px;
-    color: #333333;
-    font-size: .65em;
+    color: $body;
+    font-size: .75em;
     position: absolute;
     top: 0;
     right:0;
@@ -190,9 +186,26 @@ h3 {
 
 /* Timestamp */
 .tl-stamp {
-  font-size: 0.7em;
-  color: gray; 
-  border-bottom: 1px solid #eeeeee;
+  font-size: 0.75em;
+  color: $body; 
+  background: #efefef;
+  padding: .5em 1em;
+  display: inline-block;
+  border-radius: 5px;
+
+  &:after {
+    content:"";
+    position:absolute;
+    border-style:solid;
+    /* reduce the damage in FF3.0 */
+    display:block; 
+    width:0;
+    top:10px; /* controls vertical position */
+    left:7px; /* value = - border-left-width - border-right-width */
+    bottom:auto;
+    border-width:7px 12px 7px 0;
+    border-color:transparent #efefef;
+  }
 }
 
 .tl-content{
@@ -203,7 +216,7 @@ h3 {
 
 /************End Timeline**************/
 
-// DELIVERY TYPES //
+// DELIVERY Categories & Filtering //
 
 $pm:#813726;
 $reqs:#d69846;
@@ -214,18 +227,14 @@ $template:#ab50d6;
 $style-guide:#d64f8b;
 
 .key-color {
-  color: #333333;
   padding: .25em .5em;
-  display: block;
   margin-bottom: .5em;
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
   -o-transition: all 500ms ease-out;
   transition: all 500ms ease-out;
 
-  &:hover {
-    border-left-width:30px;
-  }
+  &:hover {border-left-width:30px;}
 }
 
 .tl-delivery-type{

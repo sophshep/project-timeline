@@ -21,13 +21,20 @@ ul {
 header, footer, nav, section, article, hgroup, figure {
   display: block; }
 
+img, object, video {
+  max-width: 100%;
+  border: 0; }
+
+a img {
+  border: 0;
+  outline: 0; }
+
 /************End Reset**************/
-/************Global**************/
+/************Variables & Type**************/
 body {
   background: #fff;
   color: #222222;
   font: 100%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
-  padding: 0;
   -webkit-text-size-adjust: 100%; }
 
 @media all and (min-width: 700px) {
@@ -36,22 +43,16 @@ body {
 a {
   color: #2b9bd6;
   text-decoration: none;
-  padding: .25em 0; }
-
-a:hover, a:focus {
-  color: #222222;
-  text-decoration: underline; }
+  padding: .25em 0;
+  -webkit-transition: all 500ms ease;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  transition: all 500ms ease; }
+  a:hover, a:focus {
+    color: #222222; }
 
 p {
   margin: 0 0 1em; }
-
-img, object, video {
-  max-width: 100%;
-  border: 0; }
-
-a img {
-  border: 0;
-  outline: 0; }
 
 h1 {
   color: #333;
@@ -64,7 +65,6 @@ h1 {
   margin-bottom: 1em; }
 
 h2 {
-  text-transform: lowercase;
   font-size: 3em;
   line-height: 1.1;
   margin: 0 0 0.5em; }
@@ -82,16 +82,14 @@ h3 {
     border-bottom: 1px solid #ccc; }
   .status span.alert {
     color: red; }
-  .status span.cool {
-    color: green; }
   .status a {
-    display: inline;
     opacity: 1 !important; }
 
+/************Layout**************/
 .main-col {
   padding: 0 1em; }
 
-#sidebar {
+.sidebar {
   background: #eee;
   font-size: .8em; }
 
@@ -109,7 +107,7 @@ h3 {
     margin-right: 5%;
     max-width: 1000px; }
 
-  #sidebar {
+  .sidebar {
     float: right;
     width: 30%;
     border-left: 5px solid #dddddd;
@@ -117,12 +115,7 @@ h3 {
     position: fixed;
     right: 0;
     top: 0; } }
-/************End Global**************/
-/************quick links**************/
-.key p {
-  text-transform: uppercase;
-  margin-bottom: 0; }
-
+/************Sidebar**************/
 .content-box {
   border-bottom: 5px solid #dddddd;
   padding: 0 1em 1em; }
@@ -141,46 +134,62 @@ h3 {
   padding-left: 1em;
   margin-bottom: 3em;
   position: relative; }
-
-.delivery:before {
-  content: "";
-  position: absolute;
-  top: 0px;
-  left: -13px;
-  width: 10px;
-  height: 10px;
-  border-radius: 10px;
-  background: #fff;
-  border: 5px solid #dddddd; }
-
-.current-delivery {
-  background-color: #ebf6fb;
-  padding: 1em; }
-  .current-delivery:before {
+  .delivery:before {
     content: "";
     position: absolute;
-    top: -10px;
+    top: 7px;
     left: -13px;
     width: 10px;
     height: 10px;
     border-radius: 10px;
     background: #fff;
-    border: 5px solid #333333; }
+    border: 5px solid #dddddd; }
+
+.current-delivery {
+  background-color: #ebf6fb;
+  padding: 1em; }
+  .current-delivery .tl-stamp {
+    background: #2b9bd6;
+    color: white;
+    margin-bottom: 1em; }
+    .current-delivery .tl-stamp:after {
+      margin-top: 18px;
+      border-color: transparent #2b9bd6; }
+  .current-delivery:before {
+    top: 25px;
+    border: 5px solid #222222; }
   .current-delivery:after {
     content: 'Most Recent Delivery';
     background-color: #d6ecf7;
     padding: 10px;
-    color: #333333;
-    font-size: .65em;
+    color: #222222;
+    font-size: .75em;
     position: absolute;
     top: 0;
     right: 0; }
 
 /* Timestamp */
 .tl-stamp {
-  font-size: 0.7em;
-  color: gray;
-  border-bottom: 1px solid #eeeeee; }
+  font-size: 0.75em;
+  color: #222222;
+  background: #efefef;
+  padding: .5em 1em;
+  display: inline-block;
+  border-radius: 5px; }
+  .tl-stamp:after {
+    content: "";
+    position: absolute;
+    border-style: solid;
+    /* reduce the damage in FF3.0 */
+    display: block;
+    width: 0;
+    top: 10px;
+    /* controls vertical position */
+    left: 7px;
+    /* value = - border-left-width - border-right-width */
+    bottom: auto;
+    border-width: 7px 12px 7px 0;
+    border-color: transparent #efefef; }
 
 .tl-content {
   font-weight: 700;
@@ -189,9 +198,7 @@ h3 {
 
 /************End Timeline**************/
 .key-color {
-  color: #333333;
   padding: .25em .5em;
-  display: block;
   margin-bottom: .5em;
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
