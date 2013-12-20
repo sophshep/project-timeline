@@ -7,7 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
 </head>
 <body class="filter-example">
-	<h1>Client's Project Timeline</h1>
+	<h1>Client's Deliverable Timeline</h1>
 	<div class="main">
 		<div class="main-col">
 			<ol class="timeline">
@@ -37,7 +37,7 @@
 					<div class="tl-content">Requirements</div>
 					<a href="#" class="reqs">Requirements (pdf)</a>
 					<p class="status">
-						<span>Status:</span> <a href="">Feedback posted on Basecamp</a>. Happy Cog to revise and post final draft by January 10th, 2014.
+						<span>Status:</span> <a href="">Requirements Approved</a>.
 					</p>
 				</li>
 				<li class="delivery">
@@ -72,10 +72,10 @@
 			</ol>
 		</div><!--end main-col-->
 
-		<div class="sidebar">
+		<div id="sidebar" class="sticky">
 
 			<div class="content-box key">
-				<h3>Sort by Category:</h3>
+				<h3>Filter by Category:</h3>
 				<div class="key-color pm">
 					Project Management
 				</div>
@@ -96,6 +96,16 @@
 				</div>
 				<div class="key-color style-guide">
 					Style Guide
+				</div>
+				<h3>Filter by Status:</h3>
+				<div class="key-color generic">
+					Awaiting Feedback
+				</div>
+				<div class="key-color generic">
+					To Be Revised
+				</div>
+				<div class="key-color generic">
+					Approved
 				</div>
 			</div>
 
@@ -119,18 +129,36 @@
 					</li>
 				</ul>
 			</div>
-
-			<div class="content-box quick-links">
-				<h3>This Week's Milestones</h3>
-				<div class="tl-stamp">Tuesday</div>
-				<p>HTML Wireframes: Batch 1 Due</p>
-				<div class="tl-stamp">Friday</div>
-				<p>Feedback on HTML Wireframes: Batch 1 Due</p>
-			</div>
 			
 		</div><!--end sidebar-->
 
 	</div><!--end main-->
 	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+$(function(){ // document ready
+ 
+  if (!!$('.sticky').offset()) { // make sure ".sticky" element exists
+ 
+    var stickyTop = $('.sticky').offset().top; // returns number 
+ 
+    $(window).scroll(function(){ // scroll event
+ 
+      var windowTop = $(window).scrollTop(); // returns number 
+ 
+      if (stickyTop < windowTop){
+        $('.sticky').addClass('fixed');
+      }
+      else {
+        $('.sticky').removeClass('fixed');
+      }
+ 
+    });
+ 
+  }
+ 
+});
+</script>
+
 </body>
 </html>

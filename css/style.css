@@ -26,10 +26,13 @@ header, footer, nav, section, article, hgroup, figure {
 body {
   background: #fff;
   color: #222222;
-  font: 120%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
+  font: 100%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif;
   padding: 0;
   -webkit-text-size-adjust: 100%; }
 
+@media all and (min-width: 700px) {
+  body {
+    font: 120%/1.4 "HelveticaNeue", "Helvetica", "Arial", sans-serif; } }
 a {
   color: #2b9bd6;
   text-decoration: none;
@@ -51,27 +54,25 @@ a img {
   outline: 0; }
 
 h1 {
-  background-color: #2b9bd6;
+  background-color: #333;
   color: white;
-  padding: 1em;
+  padding: .5em 1em;
+  text-align: center;
   font-size: 1.5em;
   line-height: 1;
   letter-spacing: -0.02em;
-  margin-bottom: 1em; }
+  font-weight: normal; }
 
-@media all and (min-width: 700px) {
-  h1 {
-    font-size: 2em; } }
 h2 {
   text-transform: lowercase;
   font-size: 3em;
   line-height: 1.1;
-  margin: 0 0 0.4em; }
+  margin: 0 0 0.5em; }
 
 h3 {
-  font-size: 1.1em;
+  font-size: 1.25em;
   line-height: 1.1;
-  margin: 0 0 .5em; }
+  margin: 1em 0 .53m; }
 
 .status {
   font-size: .75em;
@@ -87,38 +88,48 @@ h3 {
     display: inline;
     opacity: 1 !important; }
 
-.main {
-  padding: 0 .75em; }
+.main-col {
+  padding: 0 1em; }
+
+#sidebar {
+  background: #eee;
+  font-size: .8em; }
 
 @media all and (min-width: 700px) {
   .main {
-    padding: 0 2em;
-    max-width: 1400px; } }
+    padding: 0 0 0 2em; } }
 .main-col {
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  margin-top: 2em; }
 
 @media all and (min-width: 700px) {
   .main-col {
     float: left;
     width: 65%;
-    margin-right: 5%; }
+    margin-right: 5%;
+    max-width: 1000px; }
 
-  .sidebar {
-    float: left;
-    width: 30%; } }
+  #sidebar {
+    float: right;
+    width: 30%;
+    border-left: 5px solid #dddddd;
+    min-height: 3000px; }
+
+  .fixed {
+    position: fixed;
+    right: 0;
+    top: 0; } }
 /************End Global**************/
 /************quick links**************/
-.key {
-  margin-bottom: 2em; }
-  .key p {
-    font-size: .75em;
-    text-transform: uppercase;
-    margin-bottom: 0; }
+.key p {
+  text-transform: uppercase;
+  margin-bottom: 0; }
 
 .content-box {
-  border: 5px solid #dddddd;
-  padding: 1em;
-  margin-bottom: 1em; }
+  border-bottom: 5px solid #dddddd;
+  padding: 0 1em 1em; }
+  .content-box:last-child {
+    border-bottom: 0px; }
 
 /************Timeline**************/
 /* Timeline Container */
@@ -126,17 +137,6 @@ h3 {
   border-left: 5px solid #dddddd;
   padding-bottom: 3em;
   position: relative; }
-
-.timeline:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -1.47em;
-  width: 40px;
-  height: 40px;
-  border-radius: 40px;
-  background: #dddddd;
-  border: 5px solid #dddddd; }
 
 /* Individual Timeline Item */
 .delivery {
@@ -147,27 +147,36 @@ h3 {
 .delivery:before {
   content: "";
   position: absolute;
-  top: 0;
-  left: -0.95em;
-  width: 20px;
-  height: 20px;
-  border-radius: 20px;
+  top: 0px;
+  left: -13px;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
   background: #fff;
   border: 5px solid #dddddd; }
 
 .current-delivery {
-  background-color: #eeeeee;
+  background-color: #ebf6fb;
   padding: 1em; }
   .current-delivery:before {
     content: "";
     position: absolute;
     top: -10px;
-    left: -0.95em;
-    width: 20px;
-    height: 20px;
-    border-radius: 20px;
+    left: -13px;
+    width: 10px;
+    height: 10px;
+    border-radius: 10px;
     background: #fff;
     border: 5px solid #333333; }
+  .current-delivery:after {
+    content: 'Most Recent Delivery';
+    background-color: #d6ecf7;
+    padding: 10px;
+    color: #333333;
+    font-size: .65em;
+    position: absolute;
+    top: 0;
+    right: 0; }
 
 /* Timestamp */
 .tl-stamp {
@@ -183,7 +192,6 @@ h3 {
 /************End Timeline**************/
 .key-color {
   color: #333333;
-  font-size: .75em;
   padding: .25em .5em;
   display: block;
   margin-bottom: .5em;
@@ -194,7 +202,7 @@ h3 {
   .key-color:hover {
     border-left-width: 30px; }
 
-.tl-delivery-type, .pm, .reqs, .content, .ux, .visual-design, .template, .style-guide {
+.tl-delivery-type, .pm, .reqs, .content, .ux, .visual-design, .template, .style-guide, .generic {
   border-left-width: 5px;
   border-left-style: solid;
   padding-left: 10px;
@@ -220,6 +228,9 @@ h3 {
 
 .style-guide {
   border-color: #d64f8b; }
+
+.generic {
+  border-color: #666; }
 
 .filter-example .delivery a {
   opacity: .25; }
